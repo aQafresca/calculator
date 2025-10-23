@@ -1,0 +1,50 @@
+@use '@styles/helpers/functions' as *;
+
+.switch {
+  cursor: pointer;
+
+  position: relative;
+
+  display: inline-block;
+
+  width: rem(60);
+  height: rem(23);
+
+  &__slider {
+    position: absolute;
+    inset: 0;
+
+    border-radius: var(--radius-md);
+
+    background-color: var(--color-white-default);
+
+    transition: var(--transition-base);
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      bottom: rem(4);
+      left: rem(4);
+
+      width: rem(20);
+      height: rem(15);
+      border-radius: 50%;
+
+      background-color: var(--color-accent);
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + .switch__slider {
+      background-color: var(--color-primary);
+    }
+
+    &:checked + .switch__slider::before {
+      transform: translateX(rem(32));
+      background-color: var(--color-white-default);
+    }
+  }
+}

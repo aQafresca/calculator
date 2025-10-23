@@ -1,0 +1,42 @@
+@use '@styles/helpers/functions' as *;
+@use '@styles/helpers/mixins' as *;
+
+.calculator__buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: rem(5);
+}
+
+.btn {
+  user-select: none;
+
+  border-radius: var(--radius-md);
+
+  font-size: rem(25);
+  line-height: rem(50);
+  color: inherit;
+
+  background-color: var(--color-surface);
+
+  transition: var(--transition-base);
+
+  @include hover {
+    filter: brightness(120%);
+  }
+
+  &:active {
+    filter: brightness(80%);
+  }
+
+  &__number-span {
+    grid-column: span 2;
+  }
+
+  &__group {
+    background-color: var(--color-secondary);
+  }
+
+  &__operator {
+    background-color: var(--color-accent);
+  }
+}
