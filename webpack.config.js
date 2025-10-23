@@ -7,7 +7,7 @@ export default (env) => {
 
   return {
     mode: env?.mode ?? 'development',
-    entry: './src/index.js',
+    entry: './src/app.js',
     output: {
       filename: '[name].js',
       path: path.resolve('./dist'),
@@ -23,9 +23,19 @@ export default (env) => {
     },
     devServer: {
       static: './dist',
-      port: 3000,
+      port: 4000,
       open: true,
       hot: true,
+    },
+    resolve: {
+      // Здесь мы настраиваем алиасы для удобного импорта
+      alias: {
+        '@styles': path.resolve('./src/styles'),
+        '@constants': path.resolve('./src/constants'),
+        '@components': path.resolve('./src/components'),
+        '@utils': path.resolve('./src/utils'),
+      },
+      extensions: ['.js', '.json'],
     },
     devtool: isDev ? 'inline-source-map' : false,
     plugins: [
