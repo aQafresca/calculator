@@ -23,12 +23,11 @@ export default (env) => {
     },
     devServer: {
       static: './dist',
-      port: 4000,
+      port: env.port ?? 3000,
       open: true,
       hot: true,
     },
     resolve: {
-      // Здесь мы настраиваем алиасы для удобного импорта
       alias: {
         '@styles': path.resolve('./src/styles'),
         '@constants': path.resolve('./src/constants'),
