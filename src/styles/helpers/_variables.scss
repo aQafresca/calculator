@@ -1,0 +1,13 @@
+@use '@styles/helpers/functions' as *;
+
+$c-dark-primary: #3b3b3b;
+$c-dark-secondary: #656464;
+$c-white-default: white;
+$c-white-secondary: #d7d5d5;
+$c-accent: #ff9500;
+$c-gray-dark: #afaeae;
+$c-gray-light: #dadada;
+$c-dark-default: #171717;
+$c-shadow-primary: rgb(66 68 90 / 100%);
+$border-radius: #{rem(20)};
+$transition-duration: 0.3s;

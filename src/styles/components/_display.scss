@@ -1,0 +1,13 @@
+@use '@styles/helpers/variables' as *;
+@use '@styles/helpers/functions' as *;
+
+.display {
+  border: none;
+
+  font-size: rem(30);
+  color: var(--color-white-default);
+  text-align: right;
+
+  background-color: transparent;
+  outline: none;
+}
