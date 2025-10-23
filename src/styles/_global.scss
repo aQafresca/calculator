@@ -1,0 +1,45 @@
+@use '@styles/helpers/mixins' as *;
+@use '@styles/helpers/functions' as *;
+@use '@styles/helpers/variables' as *;
+
+:root {
+  --color-primary: #{$c-dark-primary};
+  --color-secondary: #{$c-dark-secondary};
+  --color-surface: #{$c-gray-dark};
+  --color-accent: #{$c-accent};
+  --color-border-primary: #{$c-dark-default};
+  --color-border-contrast: #{$c-gray-dark};
+  --color-shadow: #{$c-shadow-primary};
+  --color-white-default: #{$c-white-default};
+  --color-dark-default: #{$c-dark-default};
+  --color-text-default: #{$c-white-default};
+  --radius-md: #{$border-radius};
+  --transition-base: #{$transition-duration};
+}
+
+[data-theme='light'] {
+  --color-primary: #{$c-dark-secondary};
+  --color-secondary: #{$c-gray-dark};
+  --color-surface: #{$c-gray-light};
+  --color-accent: #{$c-accent};
+  --color-border-primary: #{$c-gray-dark};
+  --color-border-contrast: #{$c-dark-default};
+  --color-text-default: #{$c-dark-default};
+}
+
+#root {
+  @include flex-center;
+
+  flex-direction: column;
+  gap: rem(20);
+
+  width: 100%;
+  height: 100vh;
+  padding: rem(20);
+
+  color: var(--color-text-default);
+
+  background-color: var(--color-secondary);
+
+  transition: var(--transition-base);
+}
