@@ -1,0 +1,18 @@
+@use '@styles/helpers/functions' as *;
+@use '@styles/helpers/mixins' as *;
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  justify-content: end;
+
+  max-width: rem(360);
+  height: rem(500);
+  padding: rem(10);
+  border: rem(1) solid var(--color-border-primary);
+  border-radius: var(--radius-md);
+
+  background-color: var(--color-primary);
+  box-shadow: 8px 8px 24px 0 var(--color-shadow);
+}
