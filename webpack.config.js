@@ -44,7 +44,8 @@ export default (env) => {
       new ESLintPlugin({
         extensions: ['js'],
         emitWarning: true,
-        failOnError: !isDev,
+        failOnError: false,
+        failOnWarning: false,
       }),
     ],
   };

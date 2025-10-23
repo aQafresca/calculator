@@ -1,7 +1,7 @@
 import '@styles/components/_display.scss';
 import { createElement } from '@utils/createElement.js';
 
-export const createCalcDisplay = () => {
+export const display = () => {
   return createElement('input', {
     class: 'display',
     attrs: {

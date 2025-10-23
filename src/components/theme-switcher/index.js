@@ -1,7 +1,7 @@
 import '@styles/components/_theme.scss';
 import { createElement } from '@utils/createElement.js';
 
-export const createThemeSwitcher = () => {
+export const themeSwitcher = () => {
   const container = createElement('div', {
     class: 'switch',
   });
