@@ -1,8 +1,8 @@
 import '@styles/components/_buttons.scss';
-import { buttonConfig } from '@constants/buttonConfig.js';
+import { buttonConfig } from '@components/buttons/buttonConfig.js';
 import { createElement } from '@utils/createElement.js';
 
-export const createButtons = () => {
+export const buttons = () => {
   const container = createElement('div', {
     class: 'calculator__buttons',
   });
