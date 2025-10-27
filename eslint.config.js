@@ -1,9 +1,10 @@
 import js from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import prettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 
 export default [
   js.configs.recommended,
+  prettierRecommended,
 
   {
     files: ['src/**/*.{js,mjs,cjs}'],
@@ -16,9 +17,18 @@ export default [
     },
     rules: {
       'no-unused-vars': 'warn',
-      // "no-console": "off",
+      'no-console': 'warn',
+      semi: ['error', 'always'],
+      'padding-line-between-statements': [
+        'error',
+        { blankLine: 'always', prev: '*', next: 'return' },
+        { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+        {
+          blankLine: 'any',
+          prev: ['const', 'let', 'var'],
+          next: ['const', 'let', 'var'],
+        },
+      ],
     },
   },
-
-  eslintConfigPrettier,
 ];
