@@ -1,5 +1,6 @@
 export const createElement = (tag, options = {}) => {
   const element = document.createElement(tag);
+
   if (options.class) element.classList.add(...options.class.split(' '));
   if (options.text) element.textContent = options.text;
   if (options.attrs) {
@@ -7,5 +8,6 @@ export const createElement = (tag, options = {}) => {
       element.setAttribute(key, value);
     });
   }
+
   return element;
 };
