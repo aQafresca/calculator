@@ -1,9 +1,7 @@
 import { DATA_ATTRIBUTES, LOCALSTORAGE_KEY } from '@constants';
 
 const getSystemTheme = () => {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
 export const applyTheme = (theme) => {
@@ -28,23 +26,25 @@ export const initThemeSwitcher = (switchElement) => {
     input.checked = savedTheme === 'dark';
   } else {
     const system = getSystemTheme();
+
     setTheme(system, false);
     input.checked = system === 'dark';
   }
 
   input.addEventListener('change', () => {
     const newTheme = input.checked ? 'dark' : 'light';
+
     setTheme(newTheme);
   });
 
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', (e) => {
-      const saved = getSavedTheme();
-      if (!saved) {
-        const system = e.matches ? 'dark' : 'light';
-        setTheme(system, false);
-        input.checked = system === 'dark';
-      }
-    });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    const saved = getSavedTheme();
+
+    if (!saved) {
+      const system = e.matches ? 'dark' : 'light';
+
+      setTheme(system, false);
+      input.checked = system === 'dark';
+    }
+  });
 };

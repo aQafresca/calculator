@@ -23,7 +23,7 @@ export default (env) => {
     },
     devServer: {
       static: './dist',
-      port: env.port ?? 3000,
+      port: env.port ?? 4000,
       open: true,
       hot: true,
     },
@@ -31,6 +31,7 @@ export default (env) => {
       alias: {
         '@styles': path.resolve('./src/styles'),
         '@constants': path.resolve('./src/constants'),
+        '@state': path.resolve('./src/state'),
         '@components': path.resolve('./src/components'),
         '@utils': path.resolve('./src/utils'),
       },
