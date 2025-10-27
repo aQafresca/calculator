@@ -1,17 +1,27 @@
-import '@styles/components/_calculator.scss';
-import { display } from '../display/index.js';
-import { buttons } from '../buttons/index.js';
-import { createElement } from '@utils/createElement.js';
+import { createCalculatorState } from '@state';
+import { view } from '@components/calculator/view.js';
+import { handleInput } from '@components/calculator/controller.js';
+let state = createCalculatorState();
 
 export const calculator = () => {
-  const container = createElement('div', {
-    class: 'calculator',
+  const { container, buttonElement, updateDisplay } = view();
+
+  updateDisplay(state.displayValue);
+
+  buttonElement.addEventListener('click', (event) => {
+    if (event.target.classList.contains('btn')) {
+      const key = event.target.textContent;
+      const type = event.target.dataset.typeLogic;
+
+      const newState = handleInput(state, type, key);
+
+      if (newState !== state) {
+        state = newState;
+
+        updateDisplay(state.displayValue);
+      }
+    }
   });
-
-  const displayElement = display();
-  const buttonElement = buttons();
-
-  container.append(displayElement, buttonElement);
 
   return container;
 };

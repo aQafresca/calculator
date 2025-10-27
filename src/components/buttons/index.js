@@ -7,10 +7,13 @@ export const buttons = () => {
     class: 'calculator__buttons',
   });
 
-  buttonConfig.forEach(({ label, type }) => {
+  buttonConfig.forEach(({ label, type, typeLogic }) => {
     const button = createElement('button', {
       class: label !== '0' ? `btn btn__${type}` : `btn btn__${type}-span`,
       text: label,
+      attrs: {
+        'data-type-logic': typeLogic,
+      },
     });
 
     container.appendChild(button);
